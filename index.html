@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesona Kuliner Buton - Warisan Rasa Nusantara</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        :root {
+            /* PALET WARNA ORANGE - MONOKROMATIK (TERANG ke GELAP) */
+            --orange-10: #FFF7EE;    /* paling terang - krem orange */
+            --orange-20: #FFEFDF;    /* sangat lembut */
+            --orange-30: #FFE5CC;    /* lembut */
+            --orange-40: #FFD9B3;    /* peach orange */
+            --orange-50: #FFC999;    /* orange muda */
+            --orange-60: #FFB366;    /* orange medium terang */
+            --orange-70: #FF9B33;    /* orange terang */
+            --orange-80: #F57C00;    /* orange tua */
+            --orange-90: #E65100;    /* orange gelap */
+            --orange-100: #BF360C;   /* orange sangat gelap (untuk aksen kuat) */
+            
+            /* ASSIGNMENTS */
+            --bg-main: var(--orange-10);        /* background utama - paling terang */
+            --bg-soft: var(--orange-20);         /* soft background */
+            --card-bg: #FFFCF8;                  /* hampir putih tapi masih krem orange */
+            --card-hover: var(--orange-20);
+            --border-light: var(--orange-30);
+            --text-dark: #8B4A1C;                /* coklat orange tua */
+            --text-soft: #B85C1A;                /* orange coklat */
+            --accent-primary: var(--orange-80);  /* tombol/aksen */
+            --accent-secondary: var(--orange-70);
+            --footer-bg: linear-gradient(135deg, var(--orange-90) 0%, var(--orange-100) 100%);
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main);
+            background-image: radial-gradient(circle at 10% 20%, rgba(245, 124, 0, 0.05) 0%, rgba(0,0,0,0) 60%);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+            min-height: 100vh;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            background: rgba(255, 247, 238, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 18pt;
+            color: var(--orange-80);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--orange-80);
+            padding-left: 12px;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links li {
+            margin-left: 30px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 11pt;
+            transition: all 0.3s;
+            padding: 8px 0;
+        }
+        .nav-links a:hover {
+            color: var(--orange-80);
+            border-bottom: 2px solid var(--orange-60);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            height: 520px;
+            background: linear-gradient(rgba(255, 247, 238, 0.75), rgba(255, 229, 204, 0.85)), url('https://cdn.phototourl.com/free/2026-05-02-d1866be6-2536-498f-971c-ce1548fca3d1.jpg');
+            background-size: cover;
+            background-position: center 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 { 
+            font-size: 44pt; 
+            margin: 0; 
+            letter-spacing: 2px; 
+            color: var(--orange-90);
+            font-weight: 800;
+            text-shadow: 2px 2px 12px rgba(255,255,200,0.9);
+        }
+        .hero p { 
+            font-size: 18pt; 
+            margin-top: 10px; 
+            font-style: italic; 
+            background: rgba(255, 247, 238, 0.9);
+            padding: 8px 28px; 
+            border-radius: 50px; 
+            backdrop-filter: blur(4px);
+            color: var(--orange-80);
+            font-weight: 600;
+        }
+
+        .container { 
+            max-width: 1100px; 
+            margin: auto; 
+            padding: 40px 20px; 
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28pt;
+            color: var(--orange-80);
+            margin-bottom: 50px;
+            position: relative;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 90px;
+            height: 3px;
+            background: var(--orange-70);
+            margin: 12px auto;
+            border-radius: 3px;
+        }
+
+        /* FOOD CARD */
+        .food-item {
+            background: var(--card-bg);
+            border-radius: 32px;
+            margin-bottom: 70px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px -10px rgba(230, 126, 34, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+            background: var(--card-hover);
+            box-shadow: 0 22px 35px -12px rgba(230, 126, 34, 0.15);
+        }
+        .food-content { padding: 45px; }
+        .food-title { 
+            color: var(--orange-80);
+            font-size: 28pt; 
+            margin-bottom: 12px; 
+            border-left: 6px solid var(--orange-70);
+            padding-left: 20px;
+            font-weight: 700;
+        }
+        
+        .origin-story {
+            background: var(--bg-soft);
+            border-left: 5px solid var(--orange-70);
+            padding: 20px 25px;
+            margin: 25px 0;
+            font-style: normal;
+            font-size: 11pt;
+            border-radius: 20px;
+            color: var(--text-dark);
+        }
+
+        /* GALLERY GRID */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin: 30px 0;
+        }
+        .gallery img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+        }
+        .gallery div {
+            background: var(--orange-30);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            color: var(--orange-80);
+            font-weight: 500;
+            text-align: center;
+            font-size: 13px;
+            border: 1px solid var(--border-light);
+            min-height: 200px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-top: 35px;
+        }
+        .detail-box {
+            background: var(--bg-soft);
+            padding: 24px;
+            border-radius: 24px;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+        }
+        .detail-box:hover {
+            background: var(--orange-20);
+        }
+        .detail-box h3 { 
+            color: var(--orange-80);
+            margin-top: 0; 
+            border-bottom: 3px solid var(--orange-60);
+            padding-bottom: 8px;
+            display: inline-block;
+            font-weight: 700;
+        }
+        
+        ul, ol { padding-left: 22px; font-size: 11pt; color: var(--text-soft); line-height: 1.5; }
+        li { margin-bottom: 10px; }
+        li::marker { color: var(--orange-70); }
+
+        .cultural-note {
+            margin-top: 25px;
+            background: var(--orange-30);
+            padding: 15px 22px;
+            border-radius: 20px;
+            font-size: 10.5pt;
+            border: 1px solid var(--border-light);
+            color: var(--text-dark);
+        }
+
+        footer {
+            background: var(--footer-bg);
+            color: #FFF8F0;
+            text-align: center;
+            padding: 45px 20px;
+            margin-top: 60px;
+        }
+        footer p:first-of-type {
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        /* Dekorasi titik orange */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: radial-gradient(circle at 20% 30%, rgba(245, 124, 0, 0.08) 1.5px, transparent 1.5px);
+            background-size: 45px 45px;
+            z-index: 0;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+        
+        @media (max-width: 750px) {
+            nav { flex-direction: column; padding: 12px 20px;}
+            .nav-links { margin-top: 10px; flex-wrap: wrap; justify-content: center;}
+            .details-grid { grid-template-columns: 1fr; }
+            .gallery { grid-template-columns: repeat(2,1fr);}
+            .food-content { padding: 25px; }
+            .hero h1 { font-size: 32pt; }
+            .hero p { font-size: 14pt; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#" class="logo">Pesona Buton</a>
+    <ul class="nav-links">
+        <li><a href="#kasuami">Kasuami</a></li>
+        <li><a href="#lapalapa">Lapa-Lapa</a></li>
+        <li><a href="#kambewe">Kambewe</a></li>
+        <li><a href="#karasi">Karasi</a></li>
+    </ul>
+</nav>
+
+<div class="hero">
+    <h1>WARISAN RASA BUTON</h1>
+    <p>Cita Rasa Autentik dari Tanah Kesultanan</p>
+</div>
+
+<div class="container">
+    <h2 class="section-title">Jelajah Kuliner Tradisional</h2>
+
+    <!-- KASUAMI -->
+    <div id="kasuami" class="food-item">
+        <div class="food-content">
+            <h2 class="food-title">Kasuami</h2>
+            <p><strong>Makanan Pokok Serba Guna</strong> — Kasuami bukan hanya sekadar pengganti nasi, melainkan filosofi ketahanan pangan masyarakat Buton. Di kampung-kampung tua Kesultanan, kasuami menjadi santapan sehari-hari yang dinikmati dengan ikan asin, parende (ikan kuah kuning), atau sambal basah. Teksturnya yang lembut dan sedikit kenyal membuatnya unik.</p>
+            
+            <div class="gallery">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-bcff8d91-d229-4e62-8478-25b528041fa6.jpg" alt="Kasuami 1">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-bb0e8f0e-f469-4af0-9992-084034abee14.jpg" alt="Kasuami 2">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-f3c00ff7-1dab-44ea-a969-ca15173cc5ef.webp" alt="Kasuami 3">
+                <div>✨ Khas Bentuk Kerucut</div>
+            </div>
+
+            <div class="origin-story">
+                <strong>📜 Asal Muasal & Filosofi:</strong> Konon, bentuk kerucut kasuami terinspirasi dari gunung dan pohon beringin keramat di Keraton Buton. Leluhur menciptakan metode 'kaopi' (memeras dan mengeringkan parutan singkong) agar kasuami bisa bertahan hingga 3 hari tanpa basi — sebuah kearifan lokal mengatasi iklim panas yang kering. Setiap gigitan melambangkan rasa syukur atas hasil bumi.
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-box">
+                    <h3>🌾 Bahan Utama</h3>
+                    <ul>
+                        <li>Ubi kayu (singkong) varietas lokal Buton (putih/ungu)</li>
+                        <li>Air bersih untuk proses kaopi</li>
+                        <li>Cetakan anyaman daun kelapa/bambu berbentuk kerucut</li>
+                        <li>Garam halus (tambahan opsional)</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h3>👩‍🍳 Cara Membuat (Tradisional)</h3>
+                    <ol>
+                        <li>Kupas singkong, parut halus, lalu peras dan tekan kuat-kuat hingga getah dan airnya keluar (proses kaopi).</li>
+                        <li>Keringkan ampas parutan di bawah sinar matahari sebentar atau peras ulang hingga benar-benar kering dan berbutir.</li>
+                        <li>Masukkan ke dalam cetakan anyaman sambil ditekan, lalu kukus dalam dandang selama 40 menit.</li>
+                        <li>Keluarkan dari cetakan, sajikan hangat dengan lauk ikan kuah kuning atau sambal teri.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="cultural-note">
+                💡 <strong>Tradisi Lokal:</strong> Masyarakat pesisir Buton biasa membawa kasuami bekal melaut karena tidak mudah basi. Biasanya disantap dengan "kalo" (sayur daun ubi) dan ikan bakar.
+            </div>
+        </div>
+    </div>
+
+    <!-- LAPA-LAPA -->
+    <div id="lapalapa" class="food-item">
+        <div class="food-content">
+            <h2 class="food-title">Lapa-Lapa</h2>
+            <p><strong>Hidangan Sakral perayaan Idul Fitri & Maulid.</strong> Lapa-lapa memiliki keunikan pada teksturnya yang legit dan rasa gurih berkat santan kental yang meresap sempurna ke beras. Di setiap bulan Syawal, aroma lapa-lapa menguar dari dapur-dapur tradisional Buton.</p>
+            
+            <div class="gallery">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-88b1fc0d-2a64-42aa-b3b9-c832504d6c8f.jpg" alt="Lapa Lapa 1">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-2e3dc417-5bb1-4e55-8faa-baeeeedb5f2a.webp" alt="Lapa Lapa 2">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-88030e93-6c01-4b0c-94e2-5b6c0e1946a1.jpg" alt="Lapa Lapa 3">
+                <div>🎋 Bungkus Janur</div>
+            </div>
+
+            <div class="origin-story">
+                <strong>📜 Asal Muasal:</strong> Lapa-lapa sudah dikenal sejak abad ke-17 di lingkungan istana. Karena proses pembuatannya yang lama (merebus hingga 4 jam), hidangan ini hanya disajikan saat acara agung dan hari kemenangan. Lapa-lapa juga menjadi simbol persatuan, karena setiap keluarga saling bertukar lapa-lapa pada Lebaran ketupat.
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-box">
+                    <h3>🥥 Bahan Utama</h3>
+                    <ul>
+                        <li>Beras pulen berkualitas tinggi</li>
+                        <li>Santan kelapa tua (kental, dari 3 butir kelapa)</li>
+                        <li>Janur (daun kelapa muda) sebagai pembungkus</li>
+                        <li>Sedikit garam dan daun pandan</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h3>📝 Metode Pembuatan</h3>
+                    <ol>
+                        <li>Cuci bersih beras, lalu masak dengan santan, garam, dan pandan sampai setengah matang (aron).</li>
+                        <li>Ambil janur yang sudah dilayukan, bentuk segitiga, isi dengan nasi aron, lalu semat dengan lidi.</li>
+                        <li>Rebus dalam air mendidih selama 3-4 jam hingga matang merata.</li>
+                        <li>Angkat, tiriskan, sajikan dengan kuah kari atau sambal daging.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="cultural-note">
+                🕌 <strong>Filosofi:</strong> Lapa-lapa yang dibungkus rapat mengajarkan tentang menjaga hati dan lisan. Makanan ini biasa diantarkan ke tetangga sebagai bentuk silaturahmi yang erat.
+            </div>
+        </div>
+    </div>
+
+    <!-- KAMBEWE -->
+    <div id="kambewe" class="food-item">
+        <div class="food-content">
+            <h2 class="food-title">Kambewe</h2>
+            <p><strong>Camilan Sehat Tradisional Berbasis Jagung Muda</strong> — Kambewe adalah kue kukus atau panggang yang memanfaatkan kemanisan alami jagung manis. Di kampung-kampung Buton bagian barat, Kambewe kerap menjadi bekal anak-anak sekolah karena lebih tahan lama dibandingkan jajanan basah biasa.</p>
+            
+            <div class="gallery">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-223ecf72-d5aa-4706-8d27-bcb358f62996.jpg" alt="Kambewe 1">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-b8dd7b82-7ff8-42c1-b785-c8bc0be412d2.jpg" alt="Kambewe 2">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-04a3fa62-abd0-4b5c-ae85-d2e3fdb74113.jpg" alt="Kambewe 3">
+            </div>
+
+            <div class="origin-story">
+                <strong>📜 Cerita Rakyat:</strong> Konon, seorang petani Buton ingin menyenangkan hati anaknya yang tidak suka nasi, maka ia mencampur jagung pipil muda dengan kelapa lalu membungkusnya dengan kulit jagung. Hasilnya sangat manis dan wangi, hingga resep ini menyebar ke seluruh penjura (dusun). Kambewe kemudian menjadi oleh-oleh khas saat musim panen jagung.
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-box">
+                    <h3>🌽 Bahan Alami</h3>
+                    <ul>
+                        <li>Jagung muda yang masih berair (diparut kasar)</li>
+                        <li>Kelapa parut setengah tua</li>
+                        <li>Gula aren atau gula merah (opsional, jika jagung kurang manis)</li>
+                        <li>Daun jagung (klobot) untuk membungkus</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h3>🔥 Cara Membuat</h3>
+                    <ol>
+                        <li>Parut jagung manis, campur dengan kelapa parut dan sedikit garam.</li>
+                        <li>Ambil dua lembar klobot, letakkan adonan, lalu bungkus membentuk tum.</li>
+                        <li>Kukus selama 20 menit atau bakar di atas bara api hingga daunnya kering dan harum.</li>
+                        <li>Sajikan hangat dengan secangkir kopi robusta.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="cultural-note">
+                🌿 <strong>Keistimewaan:</strong> Tanpa minyak dan rendah gula, Kambewe menjadi camilan ideal untuk segala usia. Aroma smokey jika dibakar memberikan cita rasa khas yang tidak ditemukan di daerah lain.
+            </div>
+        </div>
+    </div>
+
+    <!-- KARASI -->
+    <div id="karasi" class="food-item">
+        <div class="food-content">
+            <h2 class="food-title">Kue Karasi (Kue Rambut)</h2>
+            <p><strong>Jejak Rasa dari Istana Kesultanan Buton</strong> — Karasi adalah kering yang bentuknya menyerupai rambut halus terurai. Hanya juru masak istana yang dipercaya membuat karasi karena teknik meneteskan adonan ke minyak membutuhkan fokus dan ketangkasan. Kini karasi menjadi kue jajanan pasar yang sangat dicari wisatawan.</p>
+            
+            <div class="gallery">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-6c25d307-d2e5-4613-bf7a-53e013284a12.webp" alt="Karasi 1">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-5a0cd884-d4ef-4856-aec9-800357aacd29.png" alt="Karasi 2">
+                <img src="https://cdn.phototourl.com/free/2026-05-02-5fe86aef-c8ee-4e16-9221-b5c0f3befd92.jpg" alt="Karasi 3">
+            </div>
+
+            <div class="origin-story">
+                <strong>📜 Legenda Karasi:</strong> Diceritakan pada masa Sultan Dayanu Ikhsanuddin, karasi tercipta secara tidak sengaja ketika seorang putri kerajaan meneteskan adonan sisa melalui lubang tempurung kelapa ke wajan berisi minyak, lalu adonan itu menggulung menyerupai rambut. Sultan sangat terkesan dan menjadikannya kue wajib dalam upacara adat.
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-box">
+                    <h3>🧉 Bahan Resep Asli</h3>
+                    <ul>
+                        <li>Tepung beras ketan putih</li>
+                        <li>Gula merah sisir halus (cairkan dengan sedikit air)</li>
+                        <li>Minyak kelapa murni untuk menggoreng</li>
+                        <li>Tempurung kelapa yang dilubangi kecil sebagai cetakan tetes</li>
+                    </ul>
+                </div>
+                <div class="detail-box">
+                    <h3>✋ Cara Membuat Karasi</h3>
+                    <ol>
+                        <li>Rebus gula merah dengan air hingga mengental, saring, campur dengan tepung beras hingga kental tapi bisa menetes.</li>
+                        <li>Panaskan minyak kelapa, masukkan adonan ke tempurung, teteskan sambil diputar membentuk lingkaran tipis.</li>
+                        <li>Segera lipat adonan yang masih lunak di minyak menggunakan sumpit bambu.</li>
+                        <li>Angkat setelah kecoklatan, tiriskan, simpan dalam toples kedap udara.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="cultural-note">
+                👑 <strong>Nilai Budaya:</strong> Karasi menggambarkan kesabaran dan keanggunan perempuan Buton. Kue ini sering dihadiahkan dalam bentuk paket pernikahan sebagai doa agar rumah tangga selalu manis dan renyah dalam menghadapi cobaan.
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p><strong>Warisan Rasa Buton</strong></p>
+    <p>Melestarikan cita rasa leluhur Kepulauan Buton, Muna, dan Wakatobi — dari dapur kesultanan hingga generasi masa kini.</p>
+    <p style="font-size: 9pt; opacity: 0.8; margin-top: 20px;">&copy; 2026 Eksplorasi Budaya Buton | Setiap hidangan adalah cerita</p>
+</footer>
+
+</body>
+</html>
