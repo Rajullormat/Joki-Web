@@ -10,44 +10,52 @@
             margin: 0;
         }
         :root {
-            /* PALET WARNA ORANGE - MONOKROMATIK (TERANG ke GELAP) */
-            --orange-10: #FFF7EE;    /* paling terang - krem orange */
-            --orange-20: #FFEFDF;    /* sangat lembut */
-            --orange-30: #FFE5CC;    /* lembut */
-            --orange-40: #FFD9B3;    /* peach orange */
-            --orange-50: #FFC999;    /* orange muda */
-            --orange-60: #FFB366;    /* orange medium terang */
-            --orange-70: #FF9B33;    /* orange terang */
-            --orange-80: #F57C00;    /* orange tua */
-            --orange-90: #E65100;    /* orange gelap */
-            --orange-100: #BF360C;   /* orange sangat gelap (untuk aksen kuat) */
+            /* PALET WARNA VIOLET / UNGU KEBIRUAN - MONOKROMATIK */
+            --violet-10: #F0EAF8;    /* ungu sangat terang (lavender pucat) */
+            --violet-20: #E6D5F5;    /* ungu lembut */
+            --violet-30: #D9C0F0;    /* lavender */
+            --violet-40: #C8A8E8;    /* ungu muda */
+            --violet-50: #B48AD5;    /* ungu medium */
+            --violet-60: #9B6FC2;    /* ungu sedang */
+            --violet-70: #7B4FAE;    /* ungu tua */
+            --violet-80: #5E3A8C;    /* ungu gelap */
+            --violet-90: #42296B;    /* ungu sangat gelap */
+            --violet-100: #2E1A4D;   /* ungu kehitaman */
             
-            /* ASSIGNMENTS */
-            --bg-main: var(--orange-10);        /* background utama - paling terang */
-            --bg-soft: var(--orange-20);         /* soft background */
-            --card-bg: #FFFCF8;                  /* hampir putih tapi masih krem orange */
-            --card-hover: var(--orange-20);
-            --border-light: var(--orange-30);
-            --text-dark: #8B4A1C;                /* coklat orange tua */
-            --text-soft: #B85C1A;                /* orange coklat */
-            --accent-primary: var(--orange-80);  /* tombol/aksen */
-            --accent-secondary: var(--orange-70);
-            --footer-bg: linear-gradient(135deg, var(--orange-90) 0%, var(--orange-100) 100%);
+            /* ASSIGNMENTS - Background dari keluarga violet */
+            --bg-main: var(--violet-10);        /* background utama - ungu terang */
+            --bg-soft: var(--violet-20);         /* soft background */
+            --card-bg: var(--violet-20);         /* kartu */
+            --card-hover: var(--violet-30);      
+            --border-light: var(--violet-40);
+            --footer-bg: linear-gradient(135deg, var(--violet-90) 0%, var(--violet-100) 100%);
+            --nav-bg: rgba(240, 234, 248, 0.96);
+            
+            /* TEKS - Hitam dan Putih */
+            --text-black: #1A1A2E;               /* hitam keunguan untuk teks utama */
+            --text-black-soft: #2D2D44;           /* hitam agak terang */
+            --text-white: #FFFFFF;                /* putih murni */
+            --text-white-soft: #F5F0FF;           /* putih sedikit ungu */
+            
+            /* WARNA AKTIF - Violet mencolok */
+            --accent-violet: var(--violet-80);    /* ungu tua mencolok */
+            --accent-violet-light: var(--violet-60);
+            --accent-violet-dark: var(--violet-90);
         }
         body {
             font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-main);
-            background-image: radial-gradient(circle at 10% 20%, rgba(245, 124, 0, 0.05) 0%, rgba(0,0,0,0) 60%);
-            color: var(--text-dark);
+            background-image: radial-gradient(circle at 10% 20%, rgba(94, 58, 140, 0.06) 0%, rgba(0,0,0,0) 60%);
+            color: var(--text-black);
             scroll-behavior: smooth;
             min-height: 100vh;
         }
 
         /* NAVIGATION BAR */
         nav {
-            background: rgba(255, 247, 238, 0.95);
+            background: var(--nav-bg);
             backdrop-filter: blur(12px);
             padding: 15px 50px;
             display: flex;
@@ -57,16 +65,16 @@
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid var(--border-light);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
         }
         .logo {
             font-weight: bold;
             font-size: 18pt;
-            color: var(--orange-80);
+            color: var(--accent-violet);
             text-decoration: none;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-left: 4px solid var(--orange-80);
+            border-left: 4px solid var(--accent-violet);
             padding-left: 12px;
         }
         .nav-links {
@@ -80,21 +88,21 @@
         }
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-black);
             font-weight: 600;
             font-size: 11pt;
             transition: all 0.3s;
             padding: 8px 0;
         }
         .nav-links a:hover {
-            color: var(--orange-80);
-            border-bottom: 2px solid var(--orange-60);
+            color: var(--accent-violet);
+            border-bottom: 2px solid var(--accent-violet-light);
         }
 
         /* HERO SECTION */
         .hero {
             height: 520px;
-            background: linear-gradient(rgba(255, 247, 238, 0.75), rgba(255, 229, 204, 0.85)), url('https://cdn.phototourl.com/free/2026-05-02-d1866be6-2536-498f-971c-ce1548fca3d1.jpg');
+            background: linear-gradient(rgba(115, 66, 179, 0.319), rgba(217, 192, 240, 0.752)), url('https://cdn.phototourl.com/free/2026-05-02-d1866be6-2536-498f-971c-ce1548fca3d1.jpg');
             background-size: cover;
             background-position: center 40%;
             display: flex;
@@ -107,20 +115,20 @@
             font-size: 44pt; 
             margin: 0; 
             letter-spacing: 2px; 
-            color: var(--orange-90);
+            color: var(--accent-violet-dark);
             font-weight: 800;
-            text-shadow: 2px 2px 12px rgba(255,255,200,0.9);
+            text-shadow: 2px 2px 12px rgba(240,234,248,0.9);
         }
         .hero p { 
             font-size: 18pt; 
             margin-top: 10px; 
             font-style: italic; 
-            background: rgba(255, 247, 238, 0.9);
+            background: rgba(47, 82, 124, 0.55);
             padding: 8px 28px; 
             border-radius: 50px; 
             backdrop-filter: blur(4px);
-            color: var(--orange-80);
-            font-weight: 600;
+            color: var(--text-white);
+            font-weight: 500;
         }
 
         .container { 
@@ -132,7 +140,7 @@
         .section-title {
             text-align: center;
             font-size: 28pt;
-            color: var(--orange-80);
+            color: var(--accent-violet);
             margin-bottom: 50px;
             position: relative;
             font-weight: 700;
@@ -142,7 +150,7 @@
             display: block;
             width: 90px;
             height: 3px;
-            background: var(--orange-70);
+            background: var(--accent-violet-light);
             margin: 12px auto;
             border-radius: 3px;
         }
@@ -153,34 +161,34 @@
             border-radius: 32px;
             margin-bottom: 70px;
             overflow: hidden;
-            box-shadow: 0 15px 30px -10px rgba(230, 126, 34, 0.08);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
             border: 1px solid var(--border-light);
         }
         .food-item:hover {
             transform: translateY(-5px);
             background: var(--card-hover);
-            box-shadow: 0 22px 35px -12px rgba(230, 126, 34, 0.15);
+            box-shadow: 0 22px 35px -12px rgba(0,0,0,0.15);
         }
         .food-content { padding: 45px; }
         .food-title { 
-            color: var(--orange-80);
+            color: var(--accent-violet-dark);
             font-size: 28pt; 
             margin-bottom: 12px; 
-            border-left: 6px solid var(--orange-70);
+            border-left: 6px solid var(--accent-violet);
             padding-left: 20px;
             font-weight: 700;
         }
         
         .origin-story {
-            background: var(--bg-soft);
-            border-left: 5px solid var(--orange-70);
+            background: rgba(240, 234, 248, 0.8);
+            border-left: 5px solid var(--accent-violet);
             padding: 20px 25px;
             margin: 25px 0;
             font-style: normal;
             font-size: 11pt;
             border-radius: 20px;
-            color: var(--text-dark);
+            color: var(--text-black);
         }
 
         /* GALLERY GRID */
@@ -197,15 +205,15 @@
             border-radius: 20px;
             border: 1px solid var(--border-light);
             transition: all 0.2s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
         .gallery div {
-            background: var(--orange-30);
+            background: var(--violet-40);
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 20px;
-            color: var(--orange-80);
+            color: var(--text-black);
             font-weight: 500;
             text-align: center;
             font-size: 13px;
@@ -220,42 +228,42 @@
             margin-top: 35px;
         }
         .detail-box {
-            background: var(--bg-soft);
+            background: rgba(240, 234, 248, 0.7);
             padding: 24px;
             border-radius: 24px;
             border: 1px solid var(--border-light);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.03);
             transition: all 0.2s;
         }
         .detail-box:hover {
-            background: var(--orange-20);
+            background: rgba(230, 213, 245, 0.9);
         }
         .detail-box h3 { 
-            color: var(--orange-80);
+            color: var(--accent-violet-dark);
             margin-top: 0; 
-            border-bottom: 3px solid var(--orange-60);
+            border-bottom: 3px solid var(--accent-violet-light);
             padding-bottom: 8px;
             display: inline-block;
             font-weight: 700;
         }
         
-        ul, ol { padding-left: 22px; font-size: 11pt; color: var(--text-soft); line-height: 1.5; }
+        ul, ol { padding-left: 22px; font-size: 11pt; color: var(--text-black-soft); line-height: 1.5; }
         li { margin-bottom: 10px; }
-        li::marker { color: var(--orange-70); }
+        li::marker { color: var(--accent-violet); }
 
         .cultural-note {
             margin-top: 25px;
-            background: var(--orange-30);
+            background: rgba(200, 168, 232, 0.4);
             padding: 15px 22px;
             border-radius: 20px;
             font-size: 10.5pt;
             border: 1px solid var(--border-light);
-            color: var(--text-dark);
+            color: var(--text-black);
         }
 
         footer {
             background: var(--footer-bg);
-            color: #FFF8F0;
+            color: var(--text-white);
             text-align: center;
             padding: 45px 20px;
             margin-top: 60px;
@@ -263,9 +271,10 @@
         footer p:first-of-type {
             font-weight: 700;
             letter-spacing: 1px;
+            color: var(--text-white);
         }
         
-        /* Dekorasi titik orange */
+        /* Dekorasi titik violet */
         body::before {
             content: '';
             position: fixed;
@@ -274,7 +283,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            background-image: radial-gradient(circle at 20% 30%, rgba(245, 124, 0, 0.08) 1.5px, transparent 1.5px);
+            background-image: radial-gradient(circle at 20% 30%, rgba(94, 58, 140, 0.08) 1.5px, transparent 1.5px);
             background-size: 45px 45px;
             z-index: 0;
         }
@@ -293,6 +302,277 @@
             .hero h1 { font-size: 32pt; }
             .hero p { font-size: 14pt; }
         }
+
+        /* ==================== CSS MOBILE RESPONSIVE ==================== */
+/* Diterapkan untuk layar dengan lebar maksimal 768px (HP & tablet kecil) */
+
+@media screen and (max-width: 768px) {
+    
+    /* ------------- NAVIGASI ------------- */
+    nav {
+        padding: 12px 16px !important;
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    .logo {
+        font-size: 14pt !important;
+        text-align: center !important;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 12px 18px !important;
+        margin-top: 5px !important;
+    }
+    
+    .nav-links li {
+        margin-left: 0 !important;
+    }
+    
+    .nav-links a {
+        font-size: 9pt !important;
+        padding: 4px 0 !important;
+    }
+    
+    /* ------------- HERO SECTION ------------- */
+    .hero {
+        min-height: 320px !important;
+        padding: 40px 20px !important;
+    }
+    
+    .hero h1 {
+        font-size: 24pt !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero p {
+        font-size: 12pt !important;
+        padding: 6px 16px !important;
+    }
+    
+    /* ------------- KONTAINER ------------- */
+    .container {
+        padding: 20px 14px !important;
+    }
+    
+    /* ------------- SECTION TITLE ------------- */
+    .section-title {
+        font-size: 20pt !important;
+        margin-bottom: 25px !important;
+    }
+    
+    .section-title::after {
+        width: 60px !important;
+        height: 2.5px !important;
+    }
+    
+    /* ------------- FOOD CARD ------------- */
+    .food-item {
+        margin-bottom: 35px !important;
+        border-radius: 20px !important;
+    }
+    
+    .food-content {
+        padding: 20px 16px !important;
+    }
+    
+    .food-title {
+        font-size: 18pt !important;
+        border-left-width: 4px !important;
+        padding-left: 12px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    .food-content p {
+        font-size: 10.5pt !important;
+        line-height: 1.45 !important;
+    }
+    
+    /* ------------- ORIGIN STORY ------------- */
+    .origin-story {
+        padding: 14px 16px !important;
+        margin: 18px 0 !important;
+        font-size: 10pt !important;
+        border-left-width: 4px !important;
+        border-radius: 14px !important;
+    }
+    
+    /* ------------- GALLERY ------------- */
+    .gallery {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+        margin: 20px 0 !important;
+    }
+    
+    .gallery img {
+        height: 120px !important;
+        border-radius: 14px !important;
+    }
+    
+    .gallery div {
+        min-height: 120px !important;
+        font-size: 10px !important;
+        border-radius: 14px !important;
+        padding: 8px !important;
+    }
+    
+    /* ------------- DETAILS GRID (JADI 1 KOLOM) ------------- */
+    .details-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px !important;
+        margin-top: 20px !important;
+    }
+    
+    .detail-box {
+        padding: 16px !important;
+        border-radius: 18px !important;
+    }
+    
+    .detail-box h3 {
+        font-size: 14pt !important;
+        margin-bottom: 12px !important;
+        border-bottom-width: 2px !important;
+    }
+    
+    ul, ol {
+        padding-left: 18px !important;
+        font-size: 10pt !important;
+    }
+    
+    li {
+        margin-bottom: 6px !important;
+    }
+    
+    /* ------------- CULTURAL NOTE ------------- */
+    .cultural-note {
+        padding: 12px 16px !important;
+        margin-top: 18px !important;
+        font-size: 9.5pt !important;
+        border-radius: 16px !important;
+    }
+    
+    /* ------------- FOOTER ------------- */
+    footer {
+        padding: 30px 16px !important;
+        margin-top: 35px !important;
+    }
+    
+    footer p {
+        font-size: 10pt !important;
+    }
+    
+    footer p:first-of-type {
+        font-size: 12pt !important;
+    }
+    
+    /* ------------- SCROLL BUTTON (opsional) ------------- */
+    .scroll-top {
+        width: 40px !important;
+        height: 40px !important;
+        bottom: 16px !important;
+        right: 16px !important;
+        font-size: 18px !important;
+    }
+    
+    /* ------------- BODY BACKGROUND TITIK ------------- */
+    body::before {
+        background-size: 30px 30px !important;
+    }
+}
+
+/* ==================== TABLET KECIL (480px - 768px) ==================== */
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .hero h1 {
+        font-size: 28pt !important;
+    }
+    
+    .gallery img {
+        height: 140px !important;
+    }
+    
+    .gallery div {
+        min-height: 140px !important;
+    }
+    
+    .container {
+        padding: 25px 20px !important;
+    }
+    
+    .food-title {
+        font-size: 20pt !important;
+    }
+}
+
+/* ==================== HP KECIL (max-width: 380px) ==================== */
+@media screen and (max-width: 380px) {
+    .hero h1 {
+        font-size: 20pt !important;
+    }
+    
+    .hero p {
+        font-size: 10pt !important;
+    }
+    
+    .food-title {
+        font-size: 16pt !important;
+    }
+    
+    .gallery {
+        gap: 8px !important;
+    }
+    
+    .gallery img {
+        height: 100px !important;
+    }
+    
+    .gallery div {
+        min-height: 100px !important;
+        font-size: 9px !important;
+    }
+    
+    .detail-box h3 {
+        font-size: 13pt !important;
+    }
+    
+    .nav-links {
+        gap: 10px 14px !important;
+    }
+    
+    .nav-links a {
+        font-size: 8.5pt !important;
+    }
+}
+
+/* ==================== LANDSCAPE MODE (HP miring) ==================== */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        min-height: 250px !important;
+        padding: 30px 20px !important;
+    }
+    
+    .hero h1 {
+        font-size: 20pt !important;
+    }
+    
+    .hero p {
+        font-size: 11pt !important;
+    }
+    
+    .gallery img {
+        height: 100px !important;
+    }
+    
+    nav {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+    
+    .nav-links {
+        margin-top: 0 !important;
+    }
+}
     </style>
 </head>
 <body>
@@ -325,7 +605,6 @@
                 <img src="https://cdn.phototourl.com/free/2026-05-02-bcff8d91-d229-4e62-8478-25b528041fa6.jpg" alt="Kasuami 1">
                 <img src="https://cdn.phototourl.com/free/2026-05-02-bb0e8f0e-f469-4af0-9992-084034abee14.jpg" alt="Kasuami 2">
                 <img src="https://cdn.phototourl.com/free/2026-05-02-f3c00ff7-1dab-44ea-a969-ca15173cc5ef.webp" alt="Kasuami 3">
-                <div>✨ Khas Bentuk Kerucut</div>
             </div>
 
             <div class="origin-story">
@@ -368,7 +647,6 @@
                 <img src="https://cdn.phototourl.com/free/2026-05-02-88b1fc0d-2a64-42aa-b3b9-c832504d6c8f.jpg" alt="Lapa Lapa 1">
                 <img src="https://cdn.phototourl.com/free/2026-05-02-2e3dc417-5bb1-4e55-8faa-baeeeedb5f2a.webp" alt="Lapa Lapa 2">
                 <img src="https://cdn.phototourl.com/free/2026-05-02-88030e93-6c01-4b0c-94e2-5b6c0e1946a1.jpg" alt="Lapa Lapa 3">
-                <div>🎋 Bungkus Janur</div>
             </div>
 
             <div class="origin-story">
@@ -456,7 +734,7 @@
             </div>
 
             <div class="origin-story">
-                <strong>📜 Legenda Karasi:</strong> Diceritakan pada masa Sultan Dayanu Ikhsanuddin, karasi tercipta secara tidak sengaja ketika seorang putri kerajaan meneteskan adonan sisa melalui lubang tempurung kelapa ke wajan berisi minyak, lalu adonan itu menggulung menyerupai rambut. Sultan sangat terkesan dan menjadikannya kue wajib dalam upacara adat.
+                <strong>📜 Legenda Karasi:</strong> Diceritakan pada masa Kesultanan, karasi tercipta secara tidak sengaja ketika seorang putri kerajaan meneteskan adonan sisa melalui lubang tempurung kelapa ke wajan berisi minyak, lalu adonan itu menggulung menyerupai rambut. Sultan sangat terkesan dan menjadikannya kue wajib dalam upacara adat.
             </div>
 
             <div class="details-grid">
